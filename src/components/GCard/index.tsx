@@ -18,7 +18,7 @@ const GCard = ({ pokemon }: GCardProps) => {
                         <img
                             src={pokemon.sprites.front_default}
                             alt={pokemon.name}
-                            className="w-full h-full object-contain"
+                            className="w-full h-full object-cover"
                             loading="lazy"
                         />
                     ) : (
@@ -76,7 +76,7 @@ const GCard = ({ pokemon }: GCardProps) => {
                     <div className="flex flex-col gap-2">
                         {pokemon.stats.map((s) => (
                             <div key={s.stat.name} className="flex items-center gap-3">
-                                <div className="flex-1 text-sm">{(s.stat.name)}</div>
+                                <div className="flex-1 text-sm">{Capitalize(s.stat.name)}</div>
                                 <div className="w-24 relative bg-gray-100 rounded-full h-2 overflow-hidden">
                                     <div
                                         className="absolute bg-purple-300 left-0 top-0 h-full rounded-full"
