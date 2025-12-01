@@ -12,13 +12,13 @@ function App() {
     } = usePokemon();
 
     const totalPokemon = 1025
-    const [multiplePokemon, setMultiplePokemon] = useState<number[]>(Array.from({length: 20}, (_, i) => i + 1));
+    const [multiplePokemon, setMultiplePokemon] = useState<number[]>(Array.from({length: 10}, (_, i) => i + 1));
 
 
     const handleLoadMore =  () => {
         const currentLength = multiplePokemon.length;
         const startId = currentLength + 1;
-        const endId = Math.min(currentLength + 20, totalPokemon);
+        const endId = Math.min(currentLength + 10, totalPokemon);
 
         if (startId > totalPokemon) return;
         const nextIds = Array.from(
@@ -43,6 +43,7 @@ function App() {
     return (
         <>
             <h1 className='font-bold text-yellow-600 text-3xl text-center my-8 '>Pokemon </h1>
+            <p className='font-bold text-yellow-600 text-xl text-center my-4 '>Total 1025 Pokemon </p>
             <div className="container mx-auto">
                 <div className='grid grid-cols-4 gap-10 '>
                     {pokemon.map(item => <div key={item.id}><GCard pokemon={item}/></div>)}
